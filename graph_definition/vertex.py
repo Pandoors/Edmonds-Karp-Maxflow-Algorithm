@@ -26,9 +26,11 @@ class Vertex:
     def __str__(self):
         return '( ' + str(self.name) + ' )'
 
+    """
+    I resigned from this method but kept it just in case :)
+    """
     # def __eq__(self, other):
     #     if not isinstance(other, Vertex):
-    #         # don't attempt to compare against unrelated types
     #         return NotImplemented
     #
     #     return self.name == other.name and self.visited == other.visited

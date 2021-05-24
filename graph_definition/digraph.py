@@ -48,9 +48,20 @@ class Digraph(Graph):
         get_from_file: reads json (adjacency list) and maps it into digraph class
         json format is [ [ [name of vertex, weight], [name of vertex, weight], ...], ...]
         get_vertices_names: returns a list of names of vertices
-        draw: takes a name of file (eg "example.png"), creates a graph drawing and stores it in "networkx_files/example.png"
+        draw: takes a name of file (eg "example.png"), creates a graph drawing and stores
+        it in "networkx_files/". Note that it only creates the vertices and edges pointing
+        in right directions. It is just for the visualisation of graph. The weights/flow of vertices are not shown.
         get_shortest_path: breadthFirstSearch usage to find the shortest path in graph
         clear_visits_bfs: marks all vertices not visited
+        hasEdgeFlipped: return True if residual (fake) edge of given edge has been created in graph and also adds the
+        flow to this edge
+        createEdgeFlipped: if residual edge does not exists - it creates one and assigns the flow to that edge
+        get_edge_from_vertices: returns an edge (residual or forward) of the given Vertices
+        clear_visits_bfs: resets the "visited" attribute of Edge for the sake of BFS find path method
+        lowerFlowGivenEdge: lowers the flow of given edge
+
+
+
     """
 
     def __init__(self):
@@ -71,7 +82,18 @@ class Digraph(Graph):
         self.edges[start.name].append(end)
         self.edgeList.append(edge)
 
+    def hasEdgeFlipped(self, start: Vertex, end: Vertex, min_flow: int):
+        for edge in self.edgeList:
+            if edge.src == end and edge.dest == start:
+                edge.flowAvailable += min_flow
+                return True
+        return False
 
+    def createEdgeFlipped(self, start: Vertex, end: Vertex, min_flow: int):
+        edgeFlipped = Edge(start, end, 0)
+        edgeFlipped.flowAvailable = min_flow
+        self.edgeList.append(edgeFlipped)
+        self.edges[start.name].append(end)
 
     def get_edge_from_vertices(self, start: Vertex, end: Vertex) -> Edge:
         for edge in self.edgeList:
@@ -111,10 +133,11 @@ class Digraph(Graph):
         for edge_idx in range(0, len(self.edgeList)):
             if self.edgeList[edge_idx].src == e.src and self.edgeList[edge_idx].dest == e.dest:
                 self.edgeList[edge_idx].lowerFlow(minFlow)
-                print("printing lowered edge: src: " + str(self.edgeList[edge_idx].src.name) + " dest: " + str(
-                    self.edgeList[edge_idx].dest.name) + " flow: " + str(
-                    self.edgeList[edge_idx].flow) + " availableFlow: " + str(
-                    self.edgeList[edge_idx].flowAvailable) + " lowered by: " + str(minFlow))
+                """Helpful print()"""
+                # print("printing lowered edge: src: " + str(self.edgeList[edge_idx].src.name) + " dest: " + str(
+                #     self.edgeList[edge_idx].dest.name) + " flow: " + str(
+                #     self.edgeList[edge_idx].flow) + " availableFlow: " + str(
+                #     self.edgeList[edge_idx].flowAvailable) + " lowered by: " + str(minFlow))
 
     def draw(self, path):
         g = nx.DiGraph()
