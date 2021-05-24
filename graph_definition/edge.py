@@ -62,8 +62,12 @@ class Edge(PlainEdge):
         self.flowAvailable = self.flow
 
     def __str__(self):
-        return '( ' + str(self.src.get_name()) + ' --> ' + \
-               str(self.dest.get_name()) + ' ) with weigh: ' \
-               + str(self.get_weight()) + ' with flow: ' + str(self.getFlow()) \
-               + ' with remaining flow: ' + str(self.getAvailableFlow())
-
+        if self.flow > 0:
+            return '( ' + str(self.src.get_name()) + ' --> ' + \
+                   str(self.dest.get_name()) + ' ) with weigh: ' \
+                   + str(self.get_weight()) + ' with flow: ' + str(self.getFlow()) \
+                   + ' with remaining flow: ' + str(self.getAvailableFlow())
+        else:
+            return '( ' + str(self.src.get_name()) + ' --> ' + \
+                   str(self.dest.get_name())  \
+                   + ' ) residual edge with remaining flow: ' + str(self.getAvailableFlow())
