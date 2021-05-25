@@ -125,6 +125,7 @@ class Digraph(Graph):
                 self.add_vertex(vertex_in)
                 edge = Edge(vertex, vertex_in, data[vert][vert_in][1])
                 self.add_edge(edge)
+        return 0, len(data)-1
 
     def get_vertices_names(self) -> list:
         return [ver.name for ver in self.vertices]
