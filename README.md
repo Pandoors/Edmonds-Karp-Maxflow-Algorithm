@@ -5,7 +5,8 @@ This program searches for the maximum flow of the graph. I described every metho
 # If You don't want to draw graphs:
 
 1) To run this code - firstly - simply download zip, or clone this repository using git:
-```git clone https://github.com/Pandoors/Edmonds-Karp-Maxflow-Algorithm
+```
+git clone https://github.com/Pandoors/Edmonds-Karp-Maxflow-Algorithm
 ```
 
 2) Then go to project directory and simply run the main.py
