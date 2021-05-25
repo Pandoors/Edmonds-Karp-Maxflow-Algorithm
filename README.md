@@ -35,7 +35,7 @@ Then the graph images will be saved in networkx_files directory. I already draw 
 I commented these lines in case there will be any problems with gettings these external libs but feel free to uncomment them if You managed to install requirements.txt. There is no need at all to install requirements in case You keep those lines commented.
 
 # How program gives results
-results are being printed in the console during working of the program. Every time algorithm finds the path it prints it. Also prints the minimum fow of edges that has to be substracted from edges in path and actual max-flow of the graph. For example:
+results are being printed in the console during working of the program. Every time algorithm finds the path - it prints it. Also prints the minimum flow of edges that has to be substracted from edges in path and actual max-flow of the graph. For example:
 ```
 printing path: ( 0 )->( 1 )->( 2 )->( 4 )->( 3 )->( 5 )->( 6 )
 actual minimum flow of edges: 1
