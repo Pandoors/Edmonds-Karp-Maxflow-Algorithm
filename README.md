@@ -5,12 +5,12 @@ This program searches for the maximum flow of the graph. I described every metho
 # If You don't want to draw graphs:
 
 1) To run this code - firstly - simply download zip, or clone this repository using git:
-```
+```python
 git clone https://github.com/Pandoors/Edmonds-Karp-Maxflow-Algorithm
 ```
 
 2) Then go to project directory and simply run the main.py
-```
+```python
 python3 main.py
 ```
 
@@ -20,13 +20,13 @@ Follow the previously written step 1) and then download the requirements.txt. As
 
 Uncomment line 33, 39 in main.py in projects.
 These lines:
-```
+```python
         """Uncomment if You wish to draw the graph"""
         # graph.draw(source[0:len(source) - 5] + ".png")
 
 ```
 and
-```
+```python
       """Uncomment if You wish to draw the graph with residual edges"""
         # graph.draw(source[0:len(source) - 5] + "_residual.png")
 ```
@@ -36,13 +36,13 @@ I commented these lines in case there will be any problems with gettings these e
 
 # How program gives results
 results are being printed in the console during working of the program. Every time algorithm finds the path - it prints it. Also prints the minimum flow of edges that has to be substracted from edges in path and actual max-flow of the graph. For example:
-```
+```python
 printing path: ( 0 )->( 1 )->( 2 )->( 4 )->( 3 )->( 5 )->( 6 )
 actual minimum flow of edges: 1
 actual maximum flow of graph: 5
 ```
 Then it prints the actual Graph edges with residual edges flow, for example: 
-```
+```python
 Graph edges: 
 ( 0 --> 1 ) with weigh: 3 with flow: 3 with remaining flow: 1
 ( 0 --> 3 ) with weigh: 3 with flow: 3 with remaining flow: 0
@@ -66,6 +66,6 @@ Graph edges:
 ( 4 --> 2 ) residual edge with remaining flow: 1
 ```
 At the end of working, when there is no edge left, the program prints the maximum flow of graph, for example:
-```
+```python
 Result maximum flow: 5
 ```
