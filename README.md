@@ -4,7 +4,7 @@ This program searches for the maximum flow of the graph. I described every metho
 
 ## How to run code:
 
-# If You don't want to draw graphs:
+# If You don't want to draw graphs (default option):
 
 1) To run this code - firstly - simply download zip, or clone this repository using git:
 ```python
