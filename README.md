@@ -37,7 +37,7 @@ and
 Then the graph images will be saved in networkx_files directory. I already draw the examples.
 I commented these lines in case there will be any problems with gettings these external libs but feel free to uncomment them if You managed to install requirements.txt. There is no need at all to install requirements in case You keep those lines commented.
 
-Then follow step 3)
+Then follow previously written step 3)
 
 # Adjacency list
 
