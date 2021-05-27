@@ -49,6 +49,7 @@ The adjacency list structure looks like this:
 Every line represents a node, starting at 0. In brackets for nth node, 
 there are nodes that are connected to this nth node, where - because graph is oriented -
 edges are "coming out" of this nth node and poiniting to all nodes in brackets. 
+If there is no edges starting at a node, we simply leave "[]" brackets.
 
 Example:
 ```python
@@ -62,7 +63,7 @@ Example:
   [[10,5]],
   [[10,15], [9,5], [4,15]],
   [[10,10]],
-  []
+  [] #10th node, no edges starting at this node so : [].
 ]
 ```
 
