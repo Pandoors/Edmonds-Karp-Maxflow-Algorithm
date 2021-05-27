@@ -4,7 +4,7 @@ This program searches for the maximum flow of the graph. I described every metho
 
 ## How to run code:
 
-# If You don't want to draw graphs:
+# If You don't want to draw graphs (default option):
 
 1) To run this code - firstly - simply download zip, or clone this repository using git:
 ```python
@@ -21,7 +21,7 @@ python3 main.py
 
 Follow the previously written step 1) and then download the requirements.txt. As You have them downloaded:
 
-Uncomment line 33, 39 in main.py in projects.
+Uncomment line 33, 39 in main.py in project.
 These lines:
 ```python
         """Uncomment if You wish to draw the graph"""
@@ -32,6 +32,25 @@ and
 ```python
       """Uncomment if You wish to draw the graph with residual edges"""
         # graph.draw(source[0:len(source) - 5] + "_residual.png")
+```
+also uncomment lines 10-11, 149-156 in graph_definition/digraph.py in project.
+These lines:
+```python
+"""Uncomment if You wish to draw the graph"""
+# from networkx.drawing.nx_agraph import to_agraph
+# import networkx as nx
+```
+and
+```python
+    """Uncomment if You wish to draw the graph"""
+    # def draw(self, path):
+    #     g = nx.DiGraph()
+    #     for edge in self.edgeList:
+    #         g.add_edge(edge.src.name, edge.dest.name, weight=edge.weight)
+    #     output_path = "networkx_files/" + path
+    #     agraph = to_agraph(g)
+    #     agraph.layout('dot')
+    #     agraph.draw(output_path)
 ```
 
 Then the graph images will be saved in networkx_files directory. I already draw the examples.
