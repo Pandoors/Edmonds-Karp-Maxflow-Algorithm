@@ -48,10 +48,11 @@ The adjacency list structure looks like this:
   [ [vertex, weight], [vertex, weight], [vertex, weight], ... ]
   ]
 ```
-Every line represents a node, starting at 0. In brackets for nth node, 
+Every line represents a node, starting from 0. In brackets for nth node, 
 there are nodes that are connected to this nth node, where - because graph is oriented -
 edges are "coming out" of this nth node and poiniting to all nodes in brackets. 
-If there is no edges starting at a node, we simply leave "[]" brackets.
+If there is no edges starting at a node, we simply leave "[]" brackets. Also at second position
+in [vertex, weight] bracket we pass weight
 
 Example:
 ```python
