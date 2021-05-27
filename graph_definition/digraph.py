@@ -2,9 +2,13 @@ from graph_definition.edge import Edge
 from graph_definition.vertex import Vertex
 import abc
 import json
-from networkx.drawing.nx_agraph import to_agraph
-import networkx as nx
 import queue
+
+"""Uncomment if You wish to draw the graph"""
+
+
+# from networkx.drawing.nx_agraph import to_agraph
+# import networkx as nx
 
 
 class Graph(metaclass=abc.ABCMeta):
@@ -125,7 +129,7 @@ class Digraph(Graph):
                 self.add_vertex(vertex_in)
                 edge = Edge(vertex, vertex_in, data[vert][vert_in][1])
                 self.add_edge(edge)
-        return 0, len(data)-1
+        return 0, len(data) - 1
 
     def get_vertices_names(self) -> list:
         return [ver.name for ver in self.vertices]
@@ -134,20 +138,22 @@ class Digraph(Graph):
         for edge_idx in range(0, len(self.edgeList)):
             if self.edgeList[edge_idx].src == e.src and self.edgeList[edge_idx].dest == e.dest:
                 self.edgeList[edge_idx].lowerFlow(minFlow)
-                """Helpful print()"""
+                """Helpful print(). Kept it if You seek for better visualisation"""
                 # print("printing lowered edge: src: " + str(self.edgeList[edge_idx].src.name) + " dest: " + str(
                 #     self.edgeList[edge_idx].dest.name) + " flow: " + str(
                 #     self.edgeList[edge_idx].flow) + " availableFlow: " + str(
                 #     self.edgeList[edge_idx].flowAvailable) + " lowered by: " + str(minFlow))
 
-    def draw(self, path):
-        g = nx.DiGraph()
-        for edge in self.edgeList:
-            g.add_edge(edge.src.name, edge.dest.name, weight=edge.weight)
-        output_path = "networkx_files/" + path
-        agraph = to_agraph(g)
-        agraph.layout('dot')
-        agraph.draw(output_path)
+    """Uncomment if You wish to draw the graph"""
+
+    # def draw(self, path):
+    #     g = nx.DiGraph()
+    #     for edge in self.edgeList:
+    #         g.add_edge(edge.src.name, edge.dest.name, weight=edge.weight)
+    #     output_path = "networkx_files/" + path
+    #     agraph = to_agraph(g)
+    #     agraph.layout('dot')
+    #     agraph.draw(output_path)
 
     def get_shortest_path(self, start: Vertex, end: Vertex):
         self.clear_visits_bfs()
