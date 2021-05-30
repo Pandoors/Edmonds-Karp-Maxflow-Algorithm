@@ -35,7 +35,7 @@ Re-run the program and try again.")
         v1_int = nodes[0]
         v2_int = nodes[1]
         while _bol:
-            print("The vertices of this graph come from: " + str(nodes[0]) + " to: " + str(nodes[1]))
+            print("The vertices names of this graph come from: " + str(nodes[0]) + " to: " + str(nodes[1]))
             v1_int = int(input("Please input source node of the Algorithm: "))
             v2_int = int(input("Please input sink node of the Algorithm: "))
 
