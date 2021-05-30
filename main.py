@@ -31,8 +31,20 @@ Re-run the program and try again.")
                 break
         """Uncomment if You wish to draw the graph"""
         # graph.draw(source[0:len(source) - 5] + ".png")
-        v1 = Vertex(nodes[0])
-        v2 = Vertex(nodes[1])
+        _bol = True
+        v1_int = nodes[0]
+        v2_int = nodes[1]
+        while _bol:
+            print("The vertices of this graph come from: " + str(nodes[0]) + " to: " + str(nodes[1]))
+            v1_int = int(input("Please input source node of the Algorithm: "))
+            v2_int = int(input("Please input sink node of the Algorithm: "))
+
+            if nodes[0] <= v1_int <= nodes[1] and nodes[0] <= v2_int <= nodes[1]:
+                break
+
+        v1 = Vertex(int(v1_int))
+        v2 = Vertex(int(v2_int))
+
         algorithm = MaxFlowFinder(graph)
         print("Result maximum flow: " + str(algorithm.edmondsKarpAlgorithm(v1, v2)))
         """Uncomment if You wish to draw the graph with residual edges"""
