@@ -21,7 +21,7 @@ python3 main.py
 
 Follow the previously written step 1) and then download the requirements.txt. As You have them downloaded:
 
-Uncomment line 33, 39 in main.py in project.
+Uncomment line 33, 51 in main.py in project.
 These lines:
 ```python
         """Uncomment if You wish to draw the graph"""
